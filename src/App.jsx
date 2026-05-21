@@ -417,7 +417,6 @@ const certificados = [
                   <video
                     src={proyecto.video}
                     autoPlay
-                    muted
                     controls
                     loop
                     playsInline
