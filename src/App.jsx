@@ -1,25 +1,99 @@
 import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa'
 import foto from './assets/FotoPerfil.jpeg'
 import parqueaImg from './assets/parquea.png'
+import { useState } from 'react'
+
+import { FaEye } from 'react-icons/fa'
+
+{/* CERTIFICADOS */}
+import cert1 from './assets/certificados/BD.pdf'
+import cert2 from './assets/certificados/C.pdf'
+import cert3 from './assets/certificados/CREACION.pdf'
+import cert4 from './assets/certificados/PAGINAS.pdf'
+import cert5 from './assets/certificados/MARKETING.pdf'
+
+{/* TECNOLOGIAS */}
+import {
+  FaJava,
+  FaReact,
+  FaGitAlt,
+  FaLinux,
+  FaHtml5,
+  FaCss3Alt,
+  FaPhp,
+  FaJs
+} from 'react-icons/fa'
+
+import {
+  SiSpringboot,
+  SiMongodb,
+  SiMysql
+} from 'react-icons/si'
 
 export default function PortfolioBrayan() {
 
+const [pdfActivo, setPdfActivo] = useState(null)
+const [techActiva, setTechActiva] = useState(null)
+
   
 
-  const tecnologias = [
-    'Java',
-    'Spring Boot',
-    'React',
-    'MongoDB',
-    'MySQL',
-    'Git',
-    'Linux',
-    'JavaScript',
-    'HTML',
-    'CSS',
-    'PHP',
-    'QA Testing'
-  ];
+const tecnologias = [
+  {
+    nombre: 'Java',
+    icono: <FaJava className="text-4xl text-orange-400" />,
+    nivel: 90
+  },
+  {
+    nombre: 'Spring Boot',
+    icono: <SiSpringboot className="text-4xl text-green-500" />,
+    nivel: 80
+  },
+  {
+    nombre: 'React',
+    icono: <FaReact className="text-4xl text-cyan-400" />,
+    nivel: 75
+  },
+  {
+    nombre: 'MongoDB',
+    icono: <SiMongodb className="text-4xl text-green-400" />,
+    nivel: 70
+  },
+  {
+    nombre: 'MySQL',
+    icono: <SiMysql className="text-4xl text-blue-400" />,
+    nivel: 85
+  },
+  {
+    nombre: 'Git',
+    icono: <FaGitAlt className="text-4xl text-orange-500" />,
+    nivel: 80
+  },
+  {
+    nombre: 'Linux',
+    icono: <FaLinux className="text-4xl text-yellow-400" />,
+    nivel: 75
+  },
+  {
+    nombre: 'JavaScript',
+    icono: <FaJs className="text-4xl text-yellow-300" />,
+    nivel: 78
+  },
+  {
+    nombre: 'HTML',
+    icono: <FaHtml5 className="text-4xl text-orange-600" />,
+    nivel: 90
+  },
+  {
+    nombre: 'CSS',
+    icono: <FaCss3Alt className="text-4xl text-blue-500" />,
+    nivel: 85
+  },
+  {
+    nombre: 'PHP',
+    icono: <FaPhp className="text-4xl text-indigo-400" />,
+    nivel: 70
+  }
+]
 
  const proyectos = [
     {
@@ -57,13 +131,28 @@ export default function PortfolioBrayan() {
     }
   ];
 
-  const certificados = [
-    'Construcción de Bases de Datos con MySQL',
-    'Programación Web con HTML, CSS y JavaScript',
-    'Creación y Diseño de Páginas Web',
-    'Conceptualización del Lenguaje C++',
-    'Marketing Digital'
-  ];
+const certificados = [
+  {
+    titulo: 'Construcción de Bases de Datos con MySQL',
+    pdf: cert1
+  },
+  {
+    titulo: 'Conceptualización del Lenguaje C++',
+    pdf: cert2
+  },
+  {
+    titulo: 'Creación y Diseño de Páginas Web',
+    pdf: cert3
+  },
+  {
+    titulo: 'Programación Web con HTML, CSS y JavaScript',
+    pdf: cert4
+  },
+  {
+    titulo: 'Marketing Digital',
+    pdf: cert5
+  }
+];
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -131,7 +220,7 @@ export default function PortfolioBrayan() {
 
       </section>
 
-      {/* TECNOLOGIAS */}
+    {/* TECNOLOGIAS */}
       <section className="bg-zinc-950 px-6 py-20">
 
         <div className="max-w-7xl mx-auto">
@@ -143,16 +232,23 @@ export default function PortfolioBrayan() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
 
             {tecnologias.map((tech) => (
-              <div
-                key={tech}
-                className="bg-zinc-900 border border-zinc-800 hover:border-green-500 transition rounded-2xl p-6 text-center"
+
+              <button
+                key={tech.nombre}
+                onClick={() => setTechActiva(tech)}
+                className="bg-zinc-900 border border-zinc-800 hover:border-green-500 hover:-translate-y-1 transition rounded-2xl p-6 text-center"
               >
 
+                <div className="flex justify-center mb-4">
+                  {tech.icono}
+                </div>
+
                 <p className="text-lg font-semibold">
-                  {tech}
+                  {tech.nombre}
                 </p>
 
-              </div>
+              </button>
+
             ))}
 
           </div>
@@ -160,6 +256,141 @@ export default function PortfolioBrayan() {
         </div>
 
       </section>
+
+      {/* MODAL TECNOLOGIA */}
+
+          {techActiva && (
+
+            <div
+              className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-fadeIn"
+              onClick={() => setTechActiva(null)}
+            >
+
+              <div
+                className="relative w-full max-w-md bg-zinc-900 border border-zinc-700 rounded-[32px] p-8 shadow-2xl shadow-green-500/10 overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+
+                {/* EFECTO FONDO */}
+
+                <div className="absolute -top-24 -right-24 w-52 h-52 bg-green-500/10 rounded-full blur-3xl" />
+
+                <div className="absolute -bottom-24 -left-24 w-52 h-52 bg-cyan-500/10 rounded-full blur-3xl" />
+
+                <div className="relative flex flex-col items-center text-center">
+
+                  {/* BOTON CERRAR */}
+
+                  <button
+                    onClick={() => setTechActiva(null)}
+                    className="absolute -top-2 -right-2 text-3xl text-zinc-500 hover:text-green-400 transition"
+                  >
+                    ×
+                  </button>
+
+                  {/* ICONO */}
+
+                  <div className="relative mb-7">
+
+                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-green-400 to-cyan-500 p-[4px] shadow-2xl shadow-green-500/20">
+
+                      <div className="w-full h-full rounded-full bg-zinc-950 flex items-center justify-center text-6xl">
+
+                        {techActiva.icono}
+
+                      </div>
+
+                    </div>
+
+                    {/* BADGE */}
+
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black border border-green-500 text-green-400 text-sm px-4 py-1 rounded-full font-bold shadow-lg shadow-green-500/20">
+                      {techActiva.nivel}%
+                    </div>
+
+                  </div>
+
+                  {/* NOMBRE */}
+
+                  <h3 className="text-3xl font-bold mb-2">
+                    {techActiva.nombre}
+                  </h3>
+
+                  <p className="text-gray-400 mb-8 text-sm">
+                    Nivel de dominio profesional
+                  </p>
+
+                  {/* BARRA */}
+
+                  <div className="w-full">
+
+                    <div className="flex justify-between text-sm mb-2 text-gray-400">
+                      <span>Progreso</span>
+                      <span>{techActiva.nivel}%</span>
+                    </div>
+
+                    <div className="w-full bg-zinc-800 rounded-full h-5 overflow-hidden border border-zinc-700">
+
+                      <div
+                        className="bg-gradient-to-r from-green-400 via-emerald-400 to-cyan-400 h-full rounded-full transition-all duration-700 shadow-lg shadow-green-500/30"
+                        style={{ width: `${techActiva.nivel}%` }}
+                      />
+
+                    </div>
+
+                  </div>
+
+                  {/* TEXTO EXTRA */}
+
+                  <div className="mt-6 bg-zinc-950 border border-zinc-800 rounded-2xl p-4 w-full">
+
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      Experiencia aplicada en proyectos reales, desarrollo de soluciones
+                      administrativas y buenas prácticas de programación.
+                    </p>
+
+                  </div>
+
+                  {/* NIVEL */}
+
+                  <div className="mt-5">
+
+                    {techActiva.nivel >= 85 && (
+                      <span className="bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-semibold border border-green-500/30">
+                        Nivel Avanzado
+                      </span>
+                    )}
+
+                    {techActiva.nivel >= 70 && techActiva.nivel < 85 && (
+                      <span className="bg-cyan-500/20 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold border border-cyan-500/30">
+                        Nivel Intermedio
+                      </span>
+                    )}
+
+                    {techActiva.nivel < 70 && (
+                      <span className="bg-yellow-500/20 text-yellow-400 px-4 py-2 rounded-full text-sm font-semibold border border-yellow-500/30">
+                        Nivel Básico
+                      </span>
+                    )}
+
+                  </div>
+
+                  {/* BOTON */}
+
+                  <button
+                    onClick={() => setTechActiva(null)}
+                    className="mt-8 bg-gradient-to-r from-green-400 to-cyan-400 hover:scale-105 transition duration-300 px-8 py-3 rounded-2xl text-black font-bold shadow-lg shadow-green-500/20"
+                  >
+                    Cerrar
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          )}
 
       {/* PROYECTOS */}
       <section
@@ -298,13 +529,23 @@ export default function PortfolioBrayan() {
 
           {certificados.map((cert) => (
             <div
-              key={cert}
-              className="bg-zinc-900 border border-zinc-800 hover:border-green-500 transition rounded-2xl p-6"
+              key={cert.titulo}
+              className="bg-zinc-900 border border-zinc-800 hover:border-green-500 transition rounded-2xl p-6 flex flex-col justify-between"
             >
 
-              <p className="text-lg font-semibold">
-                {cert}
-              </p>
+             <>
+            <p className="text-lg font-semibold mb-5 min-h-[56px]">
+              {cert.titulo}
+            </p>
+
+          <button
+            onClick={() => setPdfActivo(cert.pdf)}
+            className="w-full bg-green-500 hover:bg-green-600 hover:scale-[1.02] transition duration-300 py-3 rounded-xl text-black font-bold flex items-center justify-center gap-3 shadow-lg shadow-green-500/20"
+          >
+            <FaEye />
+            Ver Certificado
+          </button>
+          </>
 
             </div>
           ))}
@@ -347,6 +588,51 @@ export default function PortfolioBrayan() {
         </a>
 
       </div>
+
+    {/* MODAL PDF */}
+
+        {pdfActivo && (
+
+          <div
+            className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50 p-4"
+            onClick={() => setPdfActivo(null)}
+          >
+
+            <div
+              className="relative w-full max-w-6xl h-[92vh] rounded-3xl overflow-hidden border border-zinc-700 shadow-2xl shadow-green-500/10 bg-black"
+              onClick={(e) => e.stopPropagation()}
+            >
+
+              {/* HEADER */}
+
+              <div className="absolute top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-black/60 backdrop-blur-md border-b border-zinc-800">
+
+                <h3 className="text-white font-semibold text-lg">
+                  Certificado
+                </h3>
+
+                <button
+                  onClick={() => setPdfActivo(null)}
+                  className="text-white text-3xl hover:text-green-400 transition"
+                >
+                  ×
+                </button>
+
+              </div>
+
+              {/* PDF */}
+
+              <iframe
+                src={pdfActivo}
+                title="Certificado"
+                className="w-full h-full bg-white pt-16"
+              />
+
+            </div>
+
+          </div>
+
+        )}
 
     </div>
   );
