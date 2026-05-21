@@ -23,7 +23,7 @@ import {
   SiJenkins
 } from 'react-icons/si'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import foto from './assets/FotoPerfil.jpeg'
 import parqueaImg from './assets/parquea.png'
@@ -40,6 +40,15 @@ export default function PortfolioBrayan() {
 
   const [pdfActivo, setPdfActivo] = useState(null)
   const [techActiva, setTechActiva] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false)
+  }, 3000) // Simula una carga de 3 segundos
+
+  return () => clearTimeout(timer)
+}, [])
 
   /* TECNOLOGIAS */
 
@@ -235,6 +244,81 @@ export default function PortfolioBrayan() {
       pdf: cert5
     }
   ]
+    if (loading) {
+        return (
+          <div className="min-h-screen flex items-center justify-center bg-black text-green-400 font-mono relative overflow-hidden">
+
+            {/* FONDO ANIMADO */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute w-72 h-72 bg-green-500 rounded-full blur-3xl animate-pulse top-10 left-10"></div>
+              <div className="absolute w-72 h-72 bg-cyan-500 rounded-full blur-3xl animate-pulse bottom-10 right-10"></div>
+            </div>
+
+            {/* CONTENIDO */}
+            <div className="text-center z-10">
+
+              {/* SPINNER DOBLE */}
+              <div className="relative w-24 h-24 mx-auto mb-6">
+                <div className="absolute inset-0 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+                <div className="absolute inset-3 border-4 border-cyan-400 border-b-transparent rounded-full animate-spin-slow"></div>
+              </div>
+
+              {/* TEXTO ANIMADO */}
+              <h2 className="text-xl mb-4 animate-pulse">
+                Inicializando sistema...
+              </h2>
+
+              {/* LÍNEA DE ESTADO */}
+              <div className="space-y-1 text-sm text-left inline-block">
+
+                <p className="animate-fade-in">✔ Cargando módulos de desarrollo</p>
+                <p className="animate-fade-in delay-200">✔ Conectando proyectos</p>
+                <p className="animate-fade-in delay-500">✔ Preparando entorno UI</p>
+                <p className="text-cyan-400 animate-pulse mt-2">
+                  ▶ Sistema listo...
+                </p>
+
+              </div>
+
+              {/* BARRA PROGRESO */}
+              <div className="mt-8 w-64 h-2 bg-zinc-800 rounded-full overflow-hidden mx-auto">
+                <div className="h-full bg-gradient-to-r from-green-400 to-cyan-400 animate-loading-bar"></div>
+              </div>
+
+            </div>
+
+            {/* ANIMACIONES CUSTOM (TAILWIND EXTEND O STYLE INLINE) */}
+            <style>{`
+              .animate-spin-slow {
+                animation: spin 2s linear infinite;
+              }
+
+              .animate-loading-bar {
+                width: 100%;
+                animation: loading 2s ease-in-out infinite;
+              }
+
+              @keyframes loading {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(100%); }
+              }
+
+              .animate-fade-in {
+                animation: fadeIn 1s ease-in forwards;
+                opacity: 0;
+              }
+
+              .delay-200 { animation-delay: 0.2s; }
+              .delay-500 { animation-delay: 0.5s; }
+
+              @keyframes fadeIn {
+                to { opacity: 1; }
+              }
+            `}</style>
+
+          </div>
+        )
+      }
 
   return (
     <div className="min-h-screen bg-black text-white">
