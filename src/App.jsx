@@ -1,19 +1,8 @@
-import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa'
-import foto from './assets/FotoPerfil.jpeg'
-import parqueaImg from './assets/parquea.png'
-import { useState } from 'react'
-
-import { FaEye } from 'react-icons/fa'
-
-{/* CERTIFICADOS */}
-import cert1 from './assets/certificados/BD.pdf'
-import cert2 from './assets/certificados/C.pdf'
-import cert3 from './assets/certificados/CREACION.pdf'
-import cert4 from './assets/certificados/PAGINAS.pdf'
-import cert5 from './assets/certificados/MARKETING.pdf'
-
-{/* TECNOLOGIAS */}
 import {
+  FaLinkedin,
+  FaGithub,
+  FaWhatsapp,
+  FaEye,
   FaJava,
   FaReact,
   FaGitAlt,
@@ -21,143 +10,235 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaPhp,
-  FaJs
+  FaJs,
+  FaDocker,
+  FaLaravel,
+  FaVuejs
 } from 'react-icons/fa'
-
+import { FaExternalLinkAlt } from 'react-icons/fa'
 import {
   SiSpringboot,
   SiMongodb,
-  SiMysql
+  SiMysql,
+  SiJenkins
 } from 'react-icons/si'
+
+import { useState } from 'react'
+
+import foto from './assets/FotoPerfil.jpeg'
+import parqueaImg from './assets/parquea.png'
+
+/* CERTIFICADOS */
+import cert1 from './assets/certificados/BD.pdf'
+import cert2 from './assets/certificados/C.pdf'
+import cert3 from './assets/certificados/CREACION.pdf'
+import cert4 from './assets/certificados/PAGINAS.pdf'
+import cert5 from './assets/certificados/MARKETING.pdf'
 
 export default function PortfolioBrayan() {
 
-const [pdfActivo, setPdfActivo] = useState(null)
-const [techActiva, setTechActiva] = useState(null)
+  const [pdfActivo, setPdfActivo] = useState(null)
+  const [techActiva, setTechActiva] = useState(null)
 
-  
+  /* TECNOLOGIAS */
 
-const tecnologias = [
-  {
-    nombre: 'Java',
-    icono: <FaJava className="text-4xl text-orange-400" />,
-    nivel: 90
-  },
-  {
-    nombre: 'Spring Boot',
-    icono: <SiSpringboot className="text-4xl text-green-500" />,
-    nivel: 80
-  },
-  {
-    nombre: 'React',
-    icono: <FaReact className="text-4xl text-cyan-400" />,
-    nivel: 75
-  },
-  {
-    nombre: 'MongoDB',
-    icono: <SiMongodb className="text-4xl text-green-400" />,
-    nivel: 70
-  },
-  {
-    nombre: 'MySQL',
-    icono: <SiMysql className="text-4xl text-blue-400" />,
-    nivel: 85
-  },
-  {
-    nombre: 'Git',
-    icono: <FaGitAlt className="text-4xl text-orange-500" />,
-    nivel: 80
-  },
-  {
-    nombre: 'Linux',
-    icono: <FaLinux className="text-4xl text-yellow-400" />,
-    nivel: 75
-  },
-  {
-    nombre: 'JavaScript',
-    icono: <FaJs className="text-4xl text-yellow-300" />,
-    nivel: 78
-  },
-  {
-    nombre: 'HTML',
-    icono: <FaHtml5 className="text-4xl text-orange-600" />,
-    nivel: 90
-  },
-  {
-    nombre: 'CSS',
-    icono: <FaCss3Alt className="text-4xl text-blue-500" />,
-    nivel: 85
-  },
-  {
-    nombre: 'PHP',
-    icono: <FaPhp className="text-4xl text-indigo-400" />,
-    nivel: 70
-  }
-]
+  const tecnologias = [
+    {
+      nombre: 'Java',
+      icono: <FaJava className="text-4xl text-orange-400" />,
+      nivel: 90
+    },
+    {
+      nombre: 'Spring Boot',
+      icono: <SiSpringboot className="text-4xl text-green-500" />,
+      nivel: 82
+    },
+    {
+      nombre: 'React',
+      icono: <FaReact className="text-4xl text-cyan-400" />,
+      nivel: 78
+    },
+    {
+      nombre: 'Vue.js',
+      icono: <FaVuejs className="text-4xl text-green-400" />,
+      nivel: 72
+    },
+    {
+      nombre: 'Laravel',
+      icono: <FaLaravel className="text-4xl text-red-500" />,
+      nivel: 74
+    },
+    {
+      nombre: 'MongoDB',
+      icono: <SiMongodb className="text-4xl text-green-400" />,
+      nivel: 70
+    },
+    {
+      nombre: 'MySQL',
+      icono: <SiMysql className="text-4xl text-blue-400" />,
+      nivel: 88
+    },
+    {
+      nombre: 'Git',
+      icono: <FaGitAlt className="text-4xl text-orange-500" />,
+      nivel: 85
+    },
+    {
+      nombre: 'Docker',
+      icono: <FaDocker className="text-4xl text-blue-400" />,
+      nivel: 70
+    },
+    {
+      nombre: 'Linux',
+      icono: <FaLinux className="text-4xl text-yellow-400" />,
+      nivel: 78
+    },
+    {
+      nombre: 'JavaScript',
+      icono: <FaJs className="text-4xl text-yellow-300" />,
+      nivel: 82
+    },
+    {
+      nombre: 'HTML',
+      icono: <FaHtml5 className="text-4xl text-orange-600" />,
+      nivel: 92
+    },
+    {
+      nombre: 'CSS',
+      icono: <FaCss3Alt className="text-4xl text-blue-500" />,
+      nivel: 86
+    },
+    {
+      nombre: 'PHP',
+      icono: <FaPhp className="text-4xl text-indigo-400" />,
+      nivel: 75
+    },
+    {
+      nombre: 'Jenkins',
+      icono: <SiJenkins className="text-4xl text-red-400" />,
+      nivel: 68
+    }
+  ]
 
- const proyectos = [
+  /* PROYECTOS */
+
+  const proyectos = [
     {
       titulo: 'Sistema de Parqueadero',
       descripcion:
         'Sistema administrativo desarrollado en Java Swing con control de ingreso y salida de vehículos, autenticación por roles, facturación y conexión a base de datos.',
       tecnologias: 'Java, Swing, MySQL',
       github: 'https://github.com/brayanvelandia001/Parquea',
-      imagen: parqueaImg, 
+      imagen: parqueaImg,
       video: '/videos/parquea.mp4'
     },
+
     {
-      titulo: 'Sistema POS Restaurante',
+      titulo: 'Sistema de Votaciones Electrónicas',
       descripcion:
-        'Sistema web para restaurantes orientado a meseros, cocina y caja con manejo de pedidos en tiempo real y división de cuentas.',
-      tecnologias: 'React, MongoDB, Spring Boot',
-      github: '#'
+        'Aplicación web desarrollada para la gestión de procesos de votación y registro de participantes, enfocada en control, validación y administración de datos en tiempo real.',
+      tecnologias: 'PHP, MySQL, JavaScript, HTML, CSS',
+      github: 'https://github.com/brayanvelandia001/VOTACIONES_PIEDECUESTA'
     },
     {
-      titulo: 'QA & Software Testing',
+      titulo: 'QA & Desarrollo – MAIA ERP (UNIDROGAS / TIRESIA S.A.S)',
       descripcion:
-        'Experiencia en validación funcional, pruebas de software, análisis de incidencias y soporte sobre aplicaciones empresariales.',
-      tecnologias: 'QA, Git, Linux',
-      github: '#'
+        'Participación como Ingeniero de Sistemas en TIRESIA S.A.S dentro del ecosistema MAIA ERP para clientes como UNIDROGAS. Roles de desarrollo y QA, pruebas funcionales, validación de módulos, análisis de incidencias y soporte técnico en entorno empresarial.',
+      tecnologias: 'QA, JMeter, Jenkins, Git, Linux, SQL, PERL, ERP',
+      link: 'https://tiresia.com.co/'
     }
-  ];
+  ]
+
+  /* EXPERIENCIA */
 
   const experiencia = [
     {
-      cargo: 'Ingeniero de Sistemas',
-      empresa: 'Neurotrauma Center & Cuidamed S.A.S',
-      fecha: '2024 - Actualidad',
+      cargo: 'Ingeniero de Sistemas | Desarrollo y QA',
+      empresa: 'TIRESIA S.A.S',
+      fecha: 'Febrero 2025 - Abril 2026',
       descripcion:
-        'Soporte tecnológico, mantenimiento de sistemas, gestión de infraestructura y apoyo en soluciones administrativas.'
-    }
-  ];
+        'Participación en el desarrollo y validación de soluciones empresariales para UNIDROGAS utilizando tecnologías PERL, SQL y FLEX. Ejecución de pruebas QA funcionales, soporte sobre desarrollos internos, manejo de Git y entornos Docker.'
+    },
 
-const certificados = [
-  {
-    titulo: 'Construcción de Bases de Datos con MySQL',
-    pdf: cert1
-  },
-  {
-    titulo: 'Conceptualización del Lenguaje C++',
-    pdf: cert2
-  },
-  {
-    titulo: 'Creación y Diseño de Páginas Web',
-    pdf: cert3
-  },
-  {
-    titulo: 'Programación Web con HTML, CSS y JavaScript',
-    pdf: cert4
-  },
-  {
-    titulo: 'Marketing Digital',
-    pdf: cert5
-  }
-];
+    {
+      cargo: 'Analista de Pruebas',
+      empresa: 'HEXASOLUTIONS',
+      fecha: 'Noviembre 2024 - Enero 2025',
+      descripcion:
+        'Ejecución de pruebas funcionales y soporte nivel 2 sobre aplicaciones empresariales. Manejo de consultas SQL/MySQL, creación de SP, análisis de incidencias, uso de JMeter, Jenkins y herramientas de mesa de ayuda.'
+    },
+
+    {
+      cargo: 'Ingeniero de Sistemas',
+      empresa: 'Neurotrauma Center Cuidamed S.A.S',
+      fecha: 'Febrero 2024 - Noviembre 2024',
+      descripcion:
+        'Desarrollo de soluciones internas con Java, JSF y SQL. Administración de servidores, backups, certificados de seguridad, soporte biomédico básico, facturación electrónica DIAN y creación de módulos administrativos para salud ocupacional.'
+    },
+
+    {
+      cargo: 'Ingeniero de Sistemas',
+      empresa: 'Superintendencia del Subsidio Familiar',
+      fecha: 'Enero 2023 - Diciembre 2023',
+      descripcion:
+        'Desarrollo y soporte sobre herramientas SIMON V1 y V2. Participación en desarrollo Java, SQL, HTML y CSS, soporte nivel 1 y 2, administración Moodle, pruebas QA y pruebas de rendimiento con JMeter.'
+    },
+
+    {
+      cargo: 'Ingeniero de Sistemas',
+      empresa: 'NELIZ',
+      fecha: 'Junio 2021 - Noviembre 2021',
+      descripcion:
+        'Desarrollo frontend con Vue.js y backend Laravel para soluciones orientadas al Banco Inmobiliario de Floridablanca (BIF). Manejo de bases de datos SQL y pruebas QA con automatización y análisis de performance.'
+    },
+
+    {
+      cargo: 'Ingeniero de Sistemas | Prácticas',
+      empresa: 'INTERMARKET',
+      fecha: 'Julio 2020 - Diciembre 2020',
+      descripcion:
+        'Soporte y administración de páginas web de clientes, gestión de hosting y capacitación en herramientas de creación web como Elementor.'
+    },
+
+    {
+      cargo: 'Ingeniero de Sistemas Freelance',
+      empresa: 'SOPORTCOL',
+      fecha: 'Marzo 2018 - Noviembre 2022',
+      descripcion:
+        'Desarrollo de soluciones web, soporte técnico, mantenimiento de sistemas, QA y acompañamiento tecnológico para diferentes clientes y proyectos empresariales.'
+    }
+  ]
+
+  /* CERTIFICADOS */
+
+  const certificados = [
+    {
+      titulo: 'Construcción de Bases de Datos con MySQL',
+      pdf: cert1
+    },
+    {
+      titulo: 'Conceptualización del Lenguaje C++',
+      pdf: cert2
+    },
+    {
+      titulo: 'Creación y Diseño de Páginas Web',
+      pdf: cert3
+    },
+    {
+      titulo: 'Programación Web con HTML, CSS y JavaScript',
+      pdf: cert4
+    },
+    {
+      titulo: 'Marketing Digital',
+      pdf: cert5
+    }
+  ]
 
   return (
     <div className="min-h-screen bg-black text-white">
 
       {/* HERO */}
+
       <section className="px-6 py-24 max-w-7xl mx-auto">
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -173,31 +254,33 @@ const certificados = [
             </h1>
 
             <h2 className="text-2xl md:text-3xl text-gray-300 mt-5 font-semibold">
-              Ingeniero de Sistemas | Java Developer
+              Ingeniero de Sistemas | Full Stack Developer | QA Engineer
             </h2>
 
             <p className="text-gray-400 text-lg leading-relaxed mt-8">
-              Ingeniero de sistemas con experiencia en desarrollo de software,
-              pruebas QA y aplicaciones empresariales. Enfocado en tecnologías
-              Java, React, bases de datos y soluciones administrativas modernas.
+              Ingeniero de Sistemas con experiencia en desarrollo de software,
+              pruebas QA, soporte empresarial y soluciones tecnológicas orientadas
+              a optimizar procesos administrativos. Experiencia en tecnologías como
+              Java, Spring Boot, React, PHP, PERL, FLEX, SQL y herramientas de
+              testing y automatización como JMeter y Jenkins.
             </p>
 
             <div className="flex gap-4 mt-10 flex-wrap">
 
-             <a
-              href="#proyectos"
-              className="bg-green-500 hover:bg-green-600 transition px-7 py-3 rounded-2xl text-black font-bold"
-            >
-              Ver proyectos
-            </a>
+              <a
+                href="#proyectos"
+                className="bg-green-500 hover:bg-green-600 transition px-7 py-3 rounded-2xl text-black font-bold"
+              >
+                Ver proyectos
+              </a>
 
-             <a
-              href="/CV-Brayan-Velandia.pdf"
-              download
-              className="border border-zinc-700 hover:border-green-500 transition px-7 py-3 rounded-2xl"
-            >
-              Descargar CV
-            </a>
+              <a
+                href="/CV-Brayan-Velandia.pdf"
+                download
+                className="border border-zinc-700 hover:border-green-500 transition px-7 py-3 rounded-2xl"
+              >
+                Descargar CV
+              </a>
 
             </div>
 
@@ -212,6 +295,7 @@ const certificados = [
                 alt="Brayan Velandia"
                 className="w-full h-full object-cover rounded-full"
               />
+
             </div>
 
           </div>
@@ -393,27 +477,25 @@ const certificados = [
           )}
 
       {/* PROYECTOS */}
-      <section
+     <section
         id="proyectos"
         className="px-6 py-24 max-w-7xl mx-auto"
       >
-
         <h2 className="text-4xl font-bold mb-12">
           Proyectos
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 items-stretch">
           {proyectos.map((proyecto) => (
             <div
               key={proyecto.titulo}
-              className="bg-zinc-900 border border-zinc-800 hover:border-green-500 transition rounded-3xl p-6"
+              className="bg-zinc-900 border border-zinc-800 hover:border-green-500 transition rounded-3xl p-6 flex flex-col h-full"
             >
 
+              {/* MEDIA */}
               <div className="h-44 w-full rounded-2xl mb-6 overflow-hidden bg-zinc-800 flex items-center justify-center">
 
                 {proyecto.video ? (
-
                   <video
                     src={proyecto.video}
                     autoPlay
@@ -422,51 +504,58 @@ const certificados = [
                     playsInline
                     className="h-full w-full object-cover"
                   />
-
                 ) : proyecto.imagen ? (
-
                   <img
                     src={proyecto.imagen}
                     alt={proyecto.titulo}
                     className="h-full w-full object-contain p-4"
                   />
-
                 ) : (
-
                   <div className="text-gray-500 text-lg font-semibold">
                     Proyecto en desarrollo
                   </div>
-
                 )}
 
               </div>
 
+              {/* TITULO */}
               <h3 className="text-2xl font-bold mb-4">
                 {proyecto.titulo}
               </h3>
 
-              <p className="text-gray-400 leading-relaxed mb-5">
+              {/* DESCRIPCIÓN */}
+              <p className="text-gray-400 leading-relaxed mb-5 flex-grow">
                 {proyecto.descripcion}
               </p>
 
+              {/* TECNOLOGÍAS */}
               <p className="text-green-400 text-sm mb-6">
                 {proyecto.tecnologias}
               </p>
 
-             <a
-                href={proyecto.github}
+              {/* BOTÓN */}
+              <a
+                href={proyecto.github || proyecto.link}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full block text-center bg-green-500 hover:bg-green-600 transition py-3 rounded-xl text-black font-bold"
+                className="mt-auto w-full flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 transition py-3 rounded-xl text-black font-bold"
               >
-                Ver GitHub
+                {proyecto.github ? (
+                  <>
+                    <FaGithub className="text-xl" />
+                    Ver GitHub
+                  </>
+                ) : (
+                  <>
+                    <FaExternalLinkAlt className="text-xl" />
+                    Ver Empresa
+                  </>
+                )}
               </a>
 
             </div>
           ))}
-
         </div>
-
       </section>
 
       {/* EXPERIENCIA */}
