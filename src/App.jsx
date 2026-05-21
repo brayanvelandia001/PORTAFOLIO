@@ -27,6 +27,7 @@ import { useState } from 'react'
 
 import foto from './assets/FotoPerfil.jpeg'
 import parqueaImg from './assets/parquea.png'
+import maia from './assets/maia.png'
 
 /* CERTIFICADOS */
 import cert1 from './assets/certificados/BD.pdf'
@@ -145,6 +146,7 @@ export default function PortfolioBrayan() {
       descripcion:
         'Participación como Ingeniero de Sistemas en TIRESIA S.A.S dentro del ecosistema MAIA ERP para clientes como UNIDROGAS. Roles de desarrollo y QA, pruebas funcionales, validación de módulos, análisis de incidencias y soporte técnico en entorno empresarial.',
       tecnologias: 'QA, JMeter, Jenkins, Git, Linux, SQL, PERL, ERP',
+      imagen: maia,
       link: 'https://tiresia.com.co/'
     }
   ]
