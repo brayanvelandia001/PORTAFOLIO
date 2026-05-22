@@ -16,6 +16,7 @@ import {
   FaVuejs
 } from 'react-icons/fa'
 import { FaExternalLinkAlt } from 'react-icons/fa'
+import { FaLaptopCode } from 'react-icons/fa'
 import {
   SiSpringboot,
   SiMongodb,
@@ -28,6 +29,7 @@ import { useState, useEffect } from 'react'
 import foto from './assets/FotoPerfil.jpeg'
 import parqueaImg from './assets/parquea.png'
 import maia from './assets/maia.png'
+
 
 /* CERTIFICADOS */
 import cert1 from './assets/certificados/BD.pdf'
@@ -42,12 +44,34 @@ export default function PortfolioBrayan() {
   const [techActiva, setTechActiva] = useState(null)
   const [loading, setLoading] = useState(true)
 
+  const [mousePosition, setMousePosition] = useState({
+  x: 0,
+  y: 0
+})
+
   useEffect(() => {
   const timer = setTimeout(() => {
     setLoading(false)
   }, 3000) // Simula una carga de 3 segundos
 
   return () => clearTimeout(timer)
+}, [])
+
+useEffect(() => {
+
+  const mouseMove = (e) => {
+    setMousePosition({
+      x: e.clientX,
+      y: e.clientY
+    })
+  }
+
+  window.addEventListener('mousemove', mouseMove)
+
+  return () => {
+    window.removeEventListener('mousemove', mouseMove)
+  }
+
 }, [])
 
   /* TECNOLOGIAS */
@@ -321,11 +345,95 @@ export default function PortfolioBrayan() {
       }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+     <>
+
+     {/* NAVBAR */}
+      <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 backdrop-blur-xl bg-white/5 border border-white/10 px-8 py-4 rounded-full shadow-2xl">
+
+        <div className="flex items-center gap-8 text-sm md:text-base font-semibold text-gray-300">
+
+          {/* LOGO */}
+          <a
+            href="#inicio"
+            className="flex items-center gap-2 text-white font-bold text-lg hover:text-green-400 transition"
+          >
+
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-green-400 to-cyan-400 flex items-center justify-center text-black font-black shadow-lg">
+              BV
+            </div>
+
+
+          </a>
+
+          <a
+            href="#inicio"
+            className="hover:text-green-400 transition duration-300"
+          >
+            Inicio
+          </a>
+
+          <a
+            href="#tecnologias"
+            className="hover:text-green-400 transition duration-300"
+          >
+            Tecnologías
+          </a>
+
+          <a
+            href="#proyectos"
+            className="hover:text-green-400 transition duration-300"
+          >
+            Proyectos
+          </a>
+
+          <a
+            href="#experiencia"
+            className="hover:text-green-400 transition duration-300"
+          >
+            Experiencia
+          </a>
+
+          <a
+            href="#certificaciones"
+            className="hover:text-green-400 transition duration-300"
+          >
+            Certificaciones
+          </a>
+
+          <a
+            href="#contacto"
+            className="hover:text-green-400 transition duration-300"
+          >
+            Contacto
+          </a>
+
+        </div>
+
+      </nav>
+  
+        {/* CURSOR DEV */}
+        <div
+          className="fixed top-0 left-0 pointer-events-none z-[9999] text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]"
+          style={{
+            transform: `translate(${mousePosition.x - 10}px, ${mousePosition.y - 10}px)`,
+            transition: 'transform 0.03s linear'
+          }}
+        >
+          <FaLaptopCode className="text-xl rotate-[-8deg]" />
+        </div>
+            
+            <div className="min-h-screen bg-black text-white">
+
+              <div className="fixed inset-0 opacity-[0.03] pointer-events-none">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
+        </div>
 
       {/* HERO */}
 
-      <section className="px-6 py-24 max-w-7xl mx-auto">
+      <section
+        id="inicio"
+        className="px-6 py-24 max-w-7xl mx-auto"
+      >
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
 
@@ -355,7 +463,7 @@ export default function PortfolioBrayan() {
 
               <a
                 href="#proyectos"
-                className="bg-green-500 hover:bg-green-600 transition px-7 py-3 rounded-2xl text-black font-bold"
+                className="bg-green-500 hover:bg-green-600 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] transition duration-300 px-7 py-3 rounded-2xl text-black font-bold"
               >
                 Ver proyectos
               </a>
@@ -363,7 +471,7 @@ export default function PortfolioBrayan() {
               <a
                 href="/CV-Brayan-Velandia.pdf"
                 download
-                className="border border-zinc-700 hover:border-green-500 transition px-7 py-3 rounded-2xl"
+                className="border border-zinc-700 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] transition px-7 py-3 rounded-2xl"
               >
                 Descargar CV
               </a>
@@ -379,7 +487,7 @@ export default function PortfolioBrayan() {
               <img
                 src={foto}
                 alt="Brayan Velandia"
-                className="w-full h-full object-cover rounded-full"
+                className="w-full h-full object-cover rounded-full hover:scale-105 transition duration-500"
               />
 
             </div>
@@ -391,7 +499,10 @@ export default function PortfolioBrayan() {
       </section>
 
     {/* TECNOLOGIAS */}
-      <section className="bg-zinc-950 px-6 py-20">
+      <section
+        id="tecnologias"
+        className="bg-zinc-950 px-6 py-20"
+      >
 
         <div className="max-w-7xl mx-auto">
 
@@ -406,7 +517,7 @@ export default function PortfolioBrayan() {
               <button
                 key={tech.nombre}
                 onClick={() => setTechActiva(tech)}
-                className="bg-zinc-900 border border-zinc-800 hover:border-green-500 hover:-translate-y-1 transition rounded-2xl p-6 text-center"
+                className="bg-zinc-900 border border-zinc-800 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:-translate-y-1 transition rounded-2xl p-6 text-center"
               >
 
                 <div className="flex justify-center mb-4">
@@ -575,7 +686,7 @@ export default function PortfolioBrayan() {
           {proyectos.map((proyecto) => (
             <div
               key={proyecto.titulo}
-              className="bg-zinc-900 border border-zinc-800 hover:border-green-500 transition rounded-3xl p-6 flex flex-col h-full"
+              className="bg-zinc-900 border border-zinc-800 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] transition rounded-3xl p-6 flex flex-col h-full"
             >
 
               {/* MEDIA */}
@@ -645,7 +756,10 @@ export default function PortfolioBrayan() {
       </section>
 
       {/* EXPERIENCIA */}
-      <section className="bg-zinc-950 px-6 py-24">
+      <section
+        id="experiencia"
+        className="bg-zinc-950 px-6 py-24"
+      >
 
         <div className="max-w-7xl mx-auto">
 
@@ -693,7 +807,10 @@ export default function PortfolioBrayan() {
       </section>
 
       {/* CERTIFICADOS */}
-      <section className="px-6 py-24 max-w-7xl mx-auto">
+      <section
+        id="certificaciones"
+        className="px-6 py-24 max-w-7xl mx-auto"
+      >
 
         <h2 className="text-4xl font-bold mb-12">
           Certificaciones
@@ -704,7 +821,7 @@ export default function PortfolioBrayan() {
           {certificados.map((cert) => (
             <div
               key={cert.titulo}
-              className="bg-zinc-900 border border-zinc-800 hover:border-green-500 transition rounded-2xl p-6 flex flex-col justify-between"
+              className="bg-zinc-900 border border-zinc-800 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] transition rounded-2xl p-6 flex flex-col justify-between"
             >
 
              <>
@@ -729,13 +846,16 @@ export default function PortfolioBrayan() {
       </section>
 
       {/* CONTACTO */}
-     <div className="flex flex-wrap justify-center gap-5">
+     <div
+        id="contacto"
+        className="flex flex-wrap justify-center gap-5 pb-20"
+      >
 
         <a
           href="https://www.linkedin.com/in/brayan-gonzalo-velandia-jaramillo-204875208"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-3 bg-zinc-900 hover:bg-blue-600 transition px-7 py-3 rounded-2xl text-white font-bold border border-zinc-800"
+            className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:bg-blue-600 transition duration-300 px-7 py-3 rounded-2xl text-white font-bold"
         >
           <FaLinkedin className="text-2xl" />
           LinkedIn
@@ -745,7 +865,7 @@ export default function PortfolioBrayan() {
           href="https://github.com/brayanvelandia001"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-3 bg-zinc-900 hover:bg-orange-500 transition px-7 py-3 rounded-2xl text-white font-bold border border-zinc-800"
+          className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:bg-orange-500 transition duration-300 px-7 py-3 rounded-2xl text-white font-bold"
         >
           <FaGithub className="text-2xl" />
           GitHub
@@ -755,7 +875,7 @@ export default function PortfolioBrayan() {
           href="https://wa.me/573212532600"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-3 bg-zinc-900 hover:bg-green-600 transition px-7 py-3 rounded-2xl text-white font-bold border border-zinc-800"
+          className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:bg-green-600 transition duration-300 px-7 py-3 rounded-2xl text-white font-bold"
         >
           <FaWhatsapp className="text-2xl" />
           WhatsApp
@@ -808,6 +928,19 @@ export default function PortfolioBrayan() {
 
         )}
 
+        <footer className="border-t border-zinc-800 py-10 text-center text-gray-500">
+
+          <p>
+            © 2026 Brayan Velandia — Full Stack Developer & QA Engineer
+          </p>
+
+          <p className="mt-2 text-sm">
+            Desarrollado con React + TailwindCSS
+          </p>
+
+        </footer>
+
     </div>
+    </>
   );
 }
