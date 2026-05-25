@@ -934,6 +934,10 @@ useEffect(() => {
             © 2026 Brayan Velandia — Full Stack Developer & QA Engineer
           </p>
 
+           <p className="mt-2 text-sm">
+            Desarrollado por <span className="text-green-400 font-semibold">Velandia Soft</span>
+          </p>
+
           <p className="mt-2 text-sm">
             Desarrollado con React + TailwindCSS
           </p>
