@@ -30,6 +30,16 @@ import foto from './assets/FotoPerfil.jpeg'
 import parqueaImg from './assets/parquea.png'
 import maia from './assets/maia.png'
 
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/pagination'
+
+import banner1 from './assets/banner1.png'
+import banner2 from './assets/banner2.png'
+import banner3 from './assets/banner3.png'
+
 
 /* CERTIFICADOS */
 import cert1 from './assets/certificados/BD.pdf'
@@ -498,6 +508,8 @@ useEffect(() => {
 
       </section>
 
+       
+
     {/* TECNOLOGIAS */}
       <section
         id="tecnologias"
@@ -840,6 +852,286 @@ useEffect(() => {
 
             </div>
           ))}
+
+        </div>
+
+      </section>
+
+      {/* BANNERS PREMIUM */}
+      <section className="px-4 md:px-6 py-10">
+
+        <div className="max-w-7xl mx-auto">
+
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false
+            }}
+            speed={1200}
+            pagination={{
+              clickable: true
+            }}
+            loop={true}
+            spaceBetween={25}
+            className="
+              rounded-[32px]
+              overflow-hidden
+              border
+              border-zinc-800
+              shadow-[0_0_60px_rgba(34,211,238,0.08)]
+            "
+          >
+
+            {/* ========================= */}
+            {/* BANNER 1 */}
+            {/* ========================= */}
+
+            <SwiperSlide>
+
+              <div className="relative group overflow-hidden bg-black">
+
+                <img
+                  src={banner1}
+                  alt="Banner Velandia Soft"
+                  className="
+                    w-full
+                    h-[220px]
+                    md:h-[360px]
+                    lg:h-[420px]
+                    object-contain
+                    bg-black
+                    transition duration-700
+                    group-hover:scale-105
+                  "
+                />
+
+                {/* OVERLAY */}
+                <div className="
+                  absolute inset-0
+                  bg-gradient-to-r
+                  from-black/65
+                  via-black/20
+                  to-transparent
+                  flex items-end
+                ">
+
+                  <div className="p-6 md:p-10">
+
+                    {/* TAG */}
+                    <div className="
+                      inline-flex
+                      items-center
+                      gap-2
+                      bg-black/40
+                      backdrop-blur-md
+                      border border-white/10
+                      px-4 py-2
+                      rounded-full
+                      mb-4
+                    ">
+
+                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+
+                      <span className="
+                        text-[11px]
+                        md:text-xs
+                        uppercase
+                        tracking-[3px]
+                        text-white/80
+                        font-semibold
+                      ">
+                        Velandia Soft
+                      </span>
+
+                    </div>
+
+                    {/* TITULO */}
+                    <h2 className="
+                      text-2xl
+                      md:text-5xl
+                      font-black
+                      leading-none
+                      text-white
+                      drop-shadow-2xl
+                    ">
+                      Full Stack
+                      <span className="text-green-400"> Developer</span>
+                    </h2>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </SwiperSlide>
+
+            {/* ========================= */}
+            {/* BANNER 2 */}
+            {/* ========================= */}
+
+            <SwiperSlide>
+
+              <div className="relative group overflow-hidden bg-black">
+
+                <img
+                  src={banner2}
+                  alt="Banner Tecnologías"
+                  className="
+                    w-full
+                    h-[220px]
+                    md:h-[360px]
+                    lg:h-[420px]
+                    object-contain
+                    bg-black
+                    transition duration-700
+                    group-hover:scale-105
+                  "
+                />
+
+                {/* OVERLAY */}
+                <div className="
+                  absolute inset-0
+                  bg-gradient-to-r
+                  from-black/65
+                  via-black/20
+                  to-transparent
+                  flex items-end
+                ">
+
+                  <div className="p-6 md:p-10">
+
+                    <div className="
+                      inline-flex
+                      items-center
+                      gap-2
+                      bg-black/40
+                      backdrop-blur-md
+                      border border-white/10
+                      px-4 py-2
+                      rounded-full
+                      mb-4
+                    ">
+
+                      <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
+
+                      <span className="
+                        text-[11px]
+                        md:text-xs
+                        uppercase
+                        tracking-[3px]
+                        text-white/80
+                        font-semibold
+                      ">
+                        React • Java • Spring
+                      </span>
+
+                    </div>
+
+                    <h2 className="
+                      text-2xl
+                      md:text-5xl
+                      font-black
+                      leading-none
+                      text-white
+                      drop-shadow-2xl
+                    ">
+                      Modern
+                      <span className="text-cyan-400"> Solutions</span>
+                    </h2>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </SwiperSlide>
+
+            {/* ========================= */}
+            {/* BANNER 3 */}
+            {/* ========================= */}
+
+            <SwiperSlide>
+
+              <div className="relative group overflow-hidden bg-black">
+
+                <img
+                  src={banner3}
+                  alt="Banner QA"
+                  className="
+                    w-full
+                    h-[220px]
+                    md:h-[360px]
+                    lg:h-[420px]
+                    object-contain
+                    bg-black
+                    transition duration-700
+                    group-hover:scale-105
+                  "
+                />
+
+                {/* OVERLAY */}
+                <div className="
+                  absolute inset-0
+                  bg-gradient-to-r
+                  from-black/65
+                  via-black/20
+                  to-transparent
+                  flex items-end
+                ">
+
+                  <div className="p-6 md:p-10">
+
+                    <div className="
+                      inline-flex
+                      items-center
+                      gap-2
+                      bg-black/40
+                      backdrop-blur-md
+                      border border-white/10
+                      px-4 py-2
+                      rounded-full
+                      mb-4
+                    ">
+
+                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+
+                      <span className="
+                        text-[11px]
+                        md:text-xs
+                        uppercase
+                        tracking-[3px]
+                        text-white/80
+                        font-semibold
+                      ">
+                        QA Engineer
+                      </span>
+
+                    </div>
+
+                    <h2 className="
+                      text-2xl
+                      md:text-5xl
+                      font-black
+                      leading-none
+                      text-white
+                      drop-shadow-2xl
+                    ">
+                      Testing &
+                      <span className="text-green-400"> Performance</span>
+                    </h2>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </SwiperSlide>
+
+          </Swiper>
 
         </div>
 
