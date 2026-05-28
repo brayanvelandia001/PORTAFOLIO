@@ -40,6 +40,8 @@ import banner1 from './assets/banner1.png'
 import banner2 from './assets/banner2.png'
 import banner3 from './assets/banner3.png'
 
+import { Analytics } from "@vercel/analytics/react";
+
 
 /* CERTIFICADOS */
 import cert1 from './assets/certificados/BD.pdf'
@@ -1237,6 +1239,7 @@ useEffect(() => {
         </footer>
 
     </div>
+    <Analytics />
     </>
   );
 }
